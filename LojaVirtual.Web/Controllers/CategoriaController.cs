@@ -19,7 +19,7 @@ namespace LojaVirtual.Web.Controllers
                 .Select(c => c.Categoria)
                 .Distinct()
                 .OrderBy(c => c);
-            return PartialView(categoria);
+            return PartialView(categorias);
 
         }
     }
