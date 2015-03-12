@@ -7,7 +7,6 @@
 }
 
 <div class="col-xs-12" style="">
-    @Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
+    @Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x, categoria = Model.CategoriaAtual }))
 </div>
-    
 
