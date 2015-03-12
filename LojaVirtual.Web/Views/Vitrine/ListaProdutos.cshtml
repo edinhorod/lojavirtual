@@ -1,14 +1,13 @@
 ﻿@model LojaVirtual.Web.Models.ProdutosViewModel
 @using LojaVirtual.Web.HtmlHelpers
 
-@foreach(var p in Model.Produtos)
+@foreach (var p in Model.Produtos)
 {
-    <div>
-        <h3>@p.Nome</h3>
-        @p.Descricao
-        <h3>@p.Preco.ToString("c")</h3>
-    </div>    
+    @Html.Partial("ProdutosDetalhes", p)
 }
 
-@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new {pagina = x }))
+<div class="col-xs-12" style="">
+    @Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
+</div>
+    
 

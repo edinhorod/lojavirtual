@@ -1,0 +1,12 @@
+﻿@model LojaVirtual.Dominio.Entidade.Produto
+
+<div class="col-xs-3 well" style="border: thin solid black; height: 280px">
+    <h4>@Model.Nome</h4>
+    <span class="pull-right label label-primary">
+        <h4 style="color: red;">@Model.Preco.ToString("c")</h4>
+    </span><br />
+    <span class="text-justify">
+        @Model.Descricao
+    </span>
+</div>
+
