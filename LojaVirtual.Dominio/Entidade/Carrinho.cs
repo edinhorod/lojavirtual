@@ -1,9 +1,6 @@
 ﻿using LojaVirtual.Dominio.Entidade;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LojaVirtual.Dominio.Entidade
 {
@@ -52,11 +49,11 @@ namespace LojaVirtual.Dominio.Entidade
         //Itens do carrinho
         public IEnumerable<ItemCarrinho> ItensCarrinho
         {
-            get 
+            get
             {
                 return _itemCarrinho;
             }
-    }
+        }
     }
 }
 

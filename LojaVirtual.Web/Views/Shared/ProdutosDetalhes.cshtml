@@ -1,12 +1,21 @@
 ﻿@model LojaVirtual.Dominio.Entidade.Produto
 
-<div class="col-xs-3 well" style="border: thin solid black; height: 330px">
+<div class="col-xs-3 well" style="/*border: thin solid black;*/ min-height: 330px">
     <h4>@Model.Nome</h4>
     <span class="pull-right label label-primary">
         <h4 style="color: red;">@Model.Preco.ToString("c")</h4>
     </span><br />
+    
     <span class="text-justify">
         @Model.Descricao
     </span>
+    @using (Html.BeginForm("Adicionar", "Carrinho"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.ProdutoId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Comprar" />
+        </div>
+    }
 </div>
 
