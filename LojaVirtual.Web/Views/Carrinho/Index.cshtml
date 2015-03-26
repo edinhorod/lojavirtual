@@ -25,14 +25,14 @@
                 <td class="text-center">@item.Quantidade</td>
                 <td class="text-center">@item.Produto.Nome</td>
                 <td class="text-right">@item.Produto.Preco.ToString("c")</td>
-                <td class="text-right">@((item.Quantidade*item.Produto.Preco).ToString("c"))</td>
+                <td class="text-right">@((item.Quantidade * item.Produto.Preco).ToString("c"))</td>
                 <td class="">
-                @using (Html.BeginForm("Remover", "Carrinho")) 
-                {
-                    @Html.Hidden("ProdutoId", item.Produto.ProdutoId)
-                    @Html.HiddenFor(x => x.ReturnUrl)
-                    <input class="btn btn-sm btn-warning"  type="submit" value="Remover" />
-                }
+                    @using (Html.BeginForm("Remover", "Carrinho"))
+                    {
+                        @Html.Hidden("ProdutoId", item.Produto.ProdutoId)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Remover" />
+                    }
                 </td>
             </tr>
         }
@@ -46,8 +46,8 @@
 </table>
 
 <div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl" >
+    <a class="btn btn-primary" href="@Model.ReturnUrl">
         Continuar comprando
     </a>
-    @Html.ActionLink("Fechar pedido", "FecharPedido", "Carrinho", new {@class = "btn btn-primary" })
+    @Html.ActionLink("Fechar pedido", "FecharPedido", "Carrinho", new { @class = "btn btn-primary" })
 </div>

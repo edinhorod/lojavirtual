@@ -25,17 +25,24 @@ namespace LojaVirtual.Dominio.Entidade
         [Required(ErrorMessage = "Informe sua cidade")]
         [Display(Name="Cidade:")]
         public string Cidade { get; set; }
-
+      
         [Required(ErrorMessage = "Informe seu bairro")]
         [Display(Name="Bairro:")]
         public string Bairro { get; set; }
 
+        [Required(ErrorMessage="Informe seu estado")]
+        [Display(Name="Estado:")]
+        public string Estado { get; set; }
+
         [Required(ErrorMessage = "Informe seu E-mail")]
         [Display(Name="E-mail:")]
         [EmailAddress(ErrorMessage="E-mail inválido")]
-        public string Emai { get; set; }
+        public string Email { get; set; }
 
         public bool EmbrulhaPresente { get; set; }
+
+        
+
 
     }
 }
