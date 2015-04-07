@@ -7,13 +7,49 @@
 
 <h2>Alterar</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.EditorForModel()
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Alterar - @Model.Nome</h3>
+    </div>
 
-    <input type="submit" value="Salvar" class="btn btn-default" />
+    @using (Html.BeginForm("Alterar", "Produto", FormMethod.Post, new { enctype = "multpart/form-data" }))
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.ProdutoId)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                switch (property.PropertyName)
+                {
+                    case "ProdutoId":
+                    case "Imagem":
+                    case "ImagemMimeType":
+                        break;
+                    default:
 
-    @Html.ActionLink("Cancelar e retornar", "Index", "Produto", new { @class = "btn btn-default" })
+                        <div class="form-group">
+                            <label>
+                                @(property.DisplayName ?? property.PropertyName)
+                            </label>
+                            @if (property.PropertyName == "Descricao")
+                            {
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                            break;
+                }
+            }
+        </div>
 
+        <div class="panel-footer">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+            @Html.ActionLink("Cancelar e retornar", "Index", null, new { @class = "btn btn-default" })
 
-}
+        </div>
+    }
+
+</div>

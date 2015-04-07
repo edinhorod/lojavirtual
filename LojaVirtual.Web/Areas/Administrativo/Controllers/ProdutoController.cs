@@ -26,5 +26,18 @@ namespace LojaVirtual.Web.Areas.Administrativo.Controllers
             Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.ProdutoId == produtoId);
                 return View(produto);
         }
+
+        [HttpPost]
+        public ActionResult Alterar(Produto produto)
+        {
+            if(ModelState.IsValid)
+            {
+                _repositorio = new ProdutosRepositorio();
+                _repositorio.Salvar(produto);
+                TempData["mensagem"] = string.Format("{0} Gravado com Sucesso", produto.Nome);
+                return RedirectToAction("Index");
+            }
+            return View(produto);
+        }
 	}
 }

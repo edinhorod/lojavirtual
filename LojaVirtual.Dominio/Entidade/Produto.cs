@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace LojaVirtual.Dominio.Entidade
@@ -12,11 +7,16 @@ namespace LojaVirtual.Dominio.Entidade
     {
         [HiddenInput(DisplayValue = false)]
         public int ProdutoId { get; set; }
+
         public string Nome { get; set; }
 
         [DataType(DataType.MultilineText)]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+        
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
+
         public string Categoria { get; set; }
 
 

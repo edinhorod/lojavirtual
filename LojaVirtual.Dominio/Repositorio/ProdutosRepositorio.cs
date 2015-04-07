@@ -15,6 +15,31 @@ namespace LojaVirtual.Dominio.Repositorio
             get { return _context.Produtos; }
         }
 
+        //Salvar/Alterar Produto
+        public void Salvar(Produto produto)
+        {
+            if(produto.ProdutoId == 0)
+            {
+                //Se produto receber o Id 0, então salva um NOVO produto
+                _context.Produtos.Add(produto);
+            }
+            else
+            {
+                //Localiza o produto pelo Id
+                Produto prod = _context.Produtos.Find(produto.ProdutoId);
+                //Se existir o ProdutoId, altera o produto existente
+                if(prod != null)
+                {
+                    prod.Nome = produto.Nome;
+                    prod.Descricao = produto.Descricao;
+                    prod.Preco = produto.Preco;
+                    prod.Categoria = produto.Categoria;
+                }
+            }
+
+            _context.SaveChanges();
+        }
+
         
     }
 }
