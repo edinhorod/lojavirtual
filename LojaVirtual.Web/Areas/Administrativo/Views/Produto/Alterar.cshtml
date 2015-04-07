@@ -1,0 +1,19 @@
+﻿@model LojaVirtual.Dominio.Entidade.Produto
+
+@{
+    ViewBag.Title = "Alterar";
+    Layout = "~/Areas/Administrativo/Views/Shared/_AdministrativoLayout.cshtml";
+}
+
+<h2>Alterar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+
+    <input type="submit" value="Salvar" class="btn btn-default" />
+
+    @Html.ActionLink("Cancelar e retornar", "Index", "Produto", new { @class = "btn btn-default" })
+
+
+}
