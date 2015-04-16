@@ -18,7 +18,7 @@ namespace LojaVirtual.Dominio.Repositorio
         //Salvar/Alterar Produto
         public void Salvar(Produto produto)
         {
-            if(produto.ProdutoId == 0)
+            if (produto.ProdutoId == 0)
             {
                 //Se produto receber o Id 0, então salva um NOVO produto
                 _context.Produtos.Add(produto);
@@ -28,7 +28,7 @@ namespace LojaVirtual.Dominio.Repositorio
                 //Localiza o produto pelo Id
                 Produto prod = _context.Produtos.Find(produto.ProdutoId);
                 //Se existir o ProdutoId, altera o produto existente
-                if(prod != null)
+                if (prod != null)
                 {
                     prod.Nome = produto.Nome;
                     prod.Descricao = produto.Descricao;
@@ -39,7 +39,18 @@ namespace LojaVirtual.Dominio.Repositorio
 
             _context.SaveChanges();
         }
-
         
+        //Excluir Produto
+        public Produto Excluir(int produtoId)
+        {
+            Produto prod = _context.Produtos.Find(produtoId);
+            if (prod != null)
+            {
+                _context.Produtos.Remove(prod);
+                _context.SaveChanges();
+            }
+            return prod;
+        }
+
     }
 }
