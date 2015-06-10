@@ -15,11 +15,14 @@ namespace LojaVirtual.Dominio.Repositorio
     public class EfDbContext : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Administrador> Administradores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Entity<Produto>().ToTable("Produtos");
+            //Mapear as classes com os nomes das tabelas no banco
+            modelBuilder.Entity<Produto>().ToTable("Produtos");//Para o Entity a tabela se chama Produto mas no banco de dados ela se chama Produtos
+            modelBuilder.Entity<Administrador>().ToTable("Administradores");
         }
     }
 }

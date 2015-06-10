@@ -1,9 +1,5 @@
 ﻿using LojaVirtual.Dominio.Entidade;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using LojaVirtual.Dominio.Entidade;
 
 namespace LojaVirtual.Web.Models
 {

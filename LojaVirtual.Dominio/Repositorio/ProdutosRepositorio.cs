@@ -10,6 +10,8 @@ namespace LojaVirtual.Dominio.Repositorio
     public class ProdutosRepositorio
     {
         private readonly EfDbContext _context = new EfDbContext();
+
+        //Listando todos os produtos
         public IEnumerable<Produto> Produtos
         {
             get { return _context.Produtos; }
